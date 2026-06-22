@@ -2,6 +2,8 @@ import Link from "next/link";
 import { products } from "@/lib/api";
 import { ProductCard } from "@/components/product/ProductCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const items = await products.list().catch(() => []);
   const featured = items.slice(0, 8);
@@ -23,9 +25,6 @@ export default async function HomePage() {
             <div className="flex gap-3 flex-wrap">
               <Link href="/products" className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-sm">
                 Browse Products
-              </Link>
-              <Link href="/login" className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-colors text-sm border border-white/20">
-                Sign In
               </Link>
             </div>
           </div>
