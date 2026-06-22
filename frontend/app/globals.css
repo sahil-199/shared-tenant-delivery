@@ -8,3 +8,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rubik', system-ui, sans-serif;
 }
+
+@keyframes wrench-swing {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+}
+
+.wrench-animate {
+  animation: wrench-swing 1.8s ease-in-out infinite;
+  transform-origin: bottom left;
+}
