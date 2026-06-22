@@ -32,11 +32,11 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
           </Link>
 
           {/* Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            <Link href="/products" className="px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">Products</Link>
-            {isLoggedIn && <Link href="/orders" className="px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">Orders</Link>}
-            {isLoggedIn && <Link href="/account" className="px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">Account</Link>}
-            {isOwner && <Link href="/admin/orders" className="px-3 py-2 text-sm text-orange-400 hover:text-orange-300 hover:bg-slate-800 rounded-lg transition-colors">Admin</Link>}
+          <nav className="hidden md:flex items-center gap-2">
+            <Link href="/products" className="px-4 py-2 text-sm font-semibold text-white bg-slate-700/60 hover:bg-orange-500 rounded-lg transition-all duration-200">Products</Link>
+            {isLoggedIn && <Link href="/orders" className="px-4 py-2 text-sm font-semibold text-white bg-slate-700/60 hover:bg-orange-500 rounded-lg transition-all duration-200">Orders</Link>}
+            {isLoggedIn && <Link href="/account" className="px-4 py-2 text-sm font-semibold text-white bg-slate-700/60 hover:bg-orange-500 rounded-lg transition-all duration-200">Account</Link>}
+            {isOwner && <Link href="/admin/orders" className="px-4 py-2 text-sm font-semibold text-orange-400 border border-orange-500/40 hover:bg-orange-500 hover:text-white rounded-lg transition-all duration-200">Admin</Link>}
           </nav>
 
           {/* Actions */}
