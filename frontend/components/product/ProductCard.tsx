@@ -5,12 +5,14 @@ import { useCartStore } from "@/store/cart";
 import { useAuthStore } from "@/store/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useToastStore } from "@/store/toast";
 
 export function ProductCard({ product }: { product: Product }) {
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
   const addItem = useCartStore((s) => s.addItem);
   const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
+  const showToast = useToastStore((s) => s.show);
   const router = useRouter();
   const variant = product.variants[0];
   const image = product.images[0]?.image_url;
@@ -23,6 +25,7 @@ export function ProductCard({ product }: { product: Product }) {
     try {
       await addItem(variant.id, 1);
       setAdded(true);
+      showToast(`${product.name} added to cart`);
       setTimeout(() => setAdded(false), 1500);
     } finally {
       setAdding(false);

@@ -177,7 +177,7 @@ export const auth = {
 // ---- Products ----
 
 export const products = {
-  list: (params?: { search?: string; category?: number; brand?: number; in_stock?: boolean; sort?: string }) => {
+  list: (params?: { search?: string; category?: string; brand?: number; in_stock?: boolean; sort?: string }) => {
     const q = new URLSearchParams();
     if (params?.search) q.set("search", params.search);
     if (params?.category) q.set("category", String(params.category));

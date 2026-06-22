@@ -11,7 +11,7 @@ export default async function ProductsPage({
   const [items, cats, brs] = await Promise.all([
     products.list({
       search: params.search,
-      category: params.category ? Number(params.category) : undefined,
+      category: params.category,
       sort: params.sort,
     }).catch(() => []),
     categories.list().catch(() => []),
@@ -27,7 +27,7 @@ export default async function ProductsPage({
           <div className="flex flex-col gap-1">
             <a href="/products" className="text-sm text-gray-600 hover:text-blue-600 py-1">All products</a>
             {cats.map((c) => (
-              <a key={c.id} href={`/products?category=${c.id}`} className="text-sm text-gray-600 hover:text-blue-600 py-1">{c.name}</a>
+              <a key={c.id} href={`/products?category=${c.slug}`} className={`text-sm py-1 transition-colors ${params.category === c.slug ? "text-orange-500 font-semibold" : "text-gray-600 hover:text-orange-500"}`}>{c.name}</a>
             ))}
           </div>
         </aside>
